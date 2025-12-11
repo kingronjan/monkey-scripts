@@ -12,6 +12,12 @@
 (function () {
     'use strict';
 
+    function removeElement(el) {
+        if (el) {
+             el.remove()
+        }
+    }
+
     let body = document.querySelector('body');
     let observer = new MutationObserver(function () {
         console.log('hello world');
@@ -31,7 +37,8 @@
         }
 
         // 移除普通用户的按钮
-        document.querySelector('.cmp-common-state-icon').remove()
+        removeElement(document.querySelector('.cmp-common-state-icon'))
+        removeElement(document.querySelector('.cmp-vip-float-bubble-body'))
     })
 
     observer.observe(body, { childList: true, subtree: true })
